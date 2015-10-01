@@ -56,23 +56,21 @@ public class AtividadeDetalhes extends ActionBarActivity {
 
                 String dataBonita = new SimpleDateFormat("dd/MM/yyyy").format(new Date(data * 1000));
 
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                String signo = prefs.getString(getString(R.string.conf_signo_chave),
+                        getString(R.string.conf_signo_padrao));
+
+
+                TextView linha1 = (TextView) findViewById(R.id.text_signo);
+                linha1.setText(titulo);
+
+                TextView linha2 = (TextView) findViewById(R.id.text_data);
+                linha2.setText(dataBonita);
+
+                TextView mensagem = (TextView) findViewById(R.id.text_previsao);
+                mensagem.setText(texto);
             }
-
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            String signo = prefs.getString(getString(R.string.conf_signo_chave),
-                    getString(R.string.conf_signo_padrao));
-
-
-
-            TextView linha1 = (TextView) findViewById(R.id.text_signo);
-            linha1.setText(Long.toString(id));
-
-            TextView linha2 = (TextView) findViewById(R.id.text_data);
-            linha2.setText(Long.toString(id));
-
-            TextView mensagem = (TextView) findViewById(R.id.text_previsao);
-            mensagem.setText(Long.toString(id));
         }
 
 
